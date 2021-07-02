@@ -1,52 +1,67 @@
-<p align="center">
+<p align=center>
 <a href="https://github.com/PhinanceScientist"><img src = "https://i.ibb.co/NLfc0SV/Deveaner.png" width = 100> </a>
+<h1 align=center><font size = 5>Segmenting and Clustering Neighborhoods in Toronto</font></h1>
 </p>
-<h1 align=center><font size = 5>Merida Neighbourhoods Clustered by Economic Vulnerability due to the COVID-19 Outbreak</font></h1>
-<br>
-
 ## Introduction
-<br>
-For this project I will be using some prepared data from a postal public web page due to the lack of postal and geodata from Mérida, Yucatán in México. The goal is to obtain some relevant information from the economic vulnerability of neighborhoods from Merida based on the information retrieved by the Foursquare API. k-means will be used to group the neighbourhoods and finally I will use the Folium library to visualize the results.
-This approach is an attempt for visualizing the main neighborhoods inside Merida in order to cluster the most economic vulnerable places as the COVID-19 expands.
+
+For this project I will be testing some web scraping methods (Beautiful Soup) with python in order to obtain data from a public web page. After cleaning and exploring the data, the goal is to obtain some relevant information from the neighbourhoods from Toronto, Canada based on the information retrieved by the Foursquare API. k-means will be used to group the neighbourhoods and finally I will use the Folium library to visualize the results.
 
 Please do notice that if you want to render this Jupyter notebook (show the folium maps) you can use this link https://nbviewer.jupyter.org/
 
-## Data
-<br>
-The data needed for this project  can be found on this local postal services web page called <a href="https://www.heraldo.com.mx/"> Heraldo.com.mx </a> where we can find several postal codes from México. In this case we will be focused on <a href="https://www.heraldo.com.mx/yucatan/merida/merida/">Mérida's postal codes</a>.<br>
-As for the CSV file used it is based on the first 100 postal codes from Mérida (ascending order starting from the downtown area as common knowledge) and then linked to its own Latitude and Longitude as a result of a Google Maps Search for each one.<br>
-The Foursquare's API will be used to retrieve information of the venue on each neighborhood, type of each venue will be our goal to determine how crowded they are and therefore the whole vulnerability of the surrounding area.  
+This project it is divided in Parts, each one with its own conclussion adn references for further analysis.
 
+### <p style =" text-align: center">PART 1</p> 
+
+### Scraping data from Wikipedia using BeautifulSoup
+
+## Final Thoughts <br>
+
+<li>Beautiful Soup is easy to use and understand, really well documented</li>
+<li>There were not Borough names for the Not assigned Neighbourhoods, so, we skipped the instruction of using the same name as de Borough for the Neighbourhood with a value of "Not assigned" (March 2020).</li>
+<li>The Original table from the wikipedia (March 2020) has fewer rows than the Example's image provide for the instructions. </li>
+<li>The example's image showed a duplicate Neighbourhood value for the M5A Postal Code but It was not found in the Wikipedia Table (March 2020).</li>
+### References <br>
+Medium post: <br>
+https://medium.com/analytics-vidhya/web-scraping-wiki-tables-using-beautifulsoup-and-python-6b9ea26d8722 (How BeautifulSoup Works)<br><br>
+
+Coursera threads:<br>
+https://www.coursera.org/learn/applied-data-science-capstone/discussions/all/threads/WwZwTZcmQJuGcE2XJuCb4g  (Scrap and turn to dataframe) <br><br>
+https://www.coursera.org/learn/applied-data-science-capstone/discussions/all/threads/czrpnE_gEemX6BLS8CLb5g (Group by, merge Poste Code) <br><br>
+
+thispointer.com:<br>
+https://thispointer.com/python-pandas-how-to-drop-rows-in-dataframe-by-conditions-on-column-values/ (How to drop rows)
 ***
-# Results and discussion<br>
 
-### I decided to use the  first 100 postal codes from Merida for this excercise due to their exposure in Foursquare as the people found there are most likely to utilice this application for tips and reviews. A brief expected behaviour for each cluster is written next to it.  
 
-### The clusters were defined by the most common type of venue: <br>
-   <li> <b>Cluster 0, Sport oriented venues around:</b>   If the places remain closed for activities as expected, it should show moderate economic downturn and represent low risk of contagion.<br></li>
-   <li> <b>Cluster 1, Venues for High Income costumers:</b> Common places known for nightlife, economic downturn and expected low risk of contagion as all this venues are closed. <br></li>
-   <li> <b>Cluster 2, Restaurants, food venues mostly: </b> High economic downturn, probably most of the venues will received a hard hit on their operations and cashflow, expected shutdown of the smallest venues of this cluster. Low risk of contagion<br></li>
-   <li> <b>Cluster 3, Big Box Stores:</b> Places still opened due to their food and basic needs distribution function. The risk of contagions its moderate as people gather for buying.<br></li>
-   <li> <b>Cluster 4, Parks and recreational venues as movie theaters and shopping mall:</b> High economic downturn, low risk of contagion.<br></li>
-   <li> <b>Cluster 5, Residential area, no parks around but a lot of Convenience Store:</b> Expected economic downturn and moderate contagion risk for the people gathering on the convenience stores. <br></li>
-   <li> <b>Cluster 6, Restaurants close to parks or gyms:</b> High economic downturn, low risk of contagion as the gyms remain closed.<br></li>
-   <li> <b>Cluster 7, Stables around, outside the city:</b> Expected economic downturn, low risk of contagion.<br></li>
-   <li> <b>Cluster 8, Highly touristic places and gyms as the most common venue:</b> Very high economic downturn caused by lack of international tourism, food venues almost closed, moderate risk of contagion<br></li>
-   <li> <b>Cluster 9, Outside the city with sports club as the most common venue:</b> Expected economic downturn, low risk of contagion.</br>
+# <p style =" text-align: center">PART 2</p> 
 
- 
- # Conclussion<br>
- In conclusion, we can observe that, regardless of the cluster, the most often venue are the restaurants. We should look for special importance to this as this kind of venue shows that it receives the most economic damage during this pandemic.</br> In Mexico, 97% of food related venues are classified as micro or small companies within 10 or fewer employees (CANIRAC, 2014), this means that they are an economic sector highly affected by situations such as COVID-19's outbreak. </br> As society, we and government should take special care for this business sector in an attempt to stop the disappearance of jobs created by restaurant entrepreneurs.
- 
- ## Bibliografy
-https://molekule.science/places-to-avoid-flu-virus/ <br>
-https://www.babymed.com/health-news/8-public-places-avoid-during-cold-and-flu-season <br>
-https://www.nhs.uk/conditions/coronavirus-covid-19/ <br>
-https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19 <br>
-https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public <br>
-https://www.healthline.com/health-news/public-places-and-the-coronavirus-what-to-know#Coronavirus-can-spread-through-contact-with-contaminated-surfaces,-too <br>
-https://www.cdc.gov/coronavirus/2019-ncov/prepare/transmission.html <br>
-https://www.bbc.com/future/article/20200317-covid-19-how-long-does-the-coronavirus-last-on-surfaces <br>
-https://canirac.org.mx/images//files/TODO%20SOBRE%20LA%20MESA%20ESTUDIOS%20DE%20LA%20INDUSTRIA.pdf
+## Final Thoughts <br>
+
+<li>The data set provided by the instructions was used in order to simplify the excercise (March 2020).</li>
+
+### References <br>
+note.nkmk.me: <br>
+https://note.nkmk.me/en/python-pandas-dataframe-rename/ (How to rename dataframe's columns )<br><br>
+
+Stack overflow:<br>
+https://stackoverflow.com/questions/43297589/merge-two-data-frames-based-on-common-column-values-in-pandas  (How to merge columns by value in pandas) <br><br>
+https://stackoverflow.com/questions/32400867/pandas-read-csv-from-url (How to read CSV from URL) <br><br>
+
+pandas.org:<br>
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html (How to read CSV with pandas)
 ***
-This notebook was <b>The final Capstone</b> from the week 5 of the Applied Data Science Capstone track from IBM Professional Certificate made by <a href='https://www.linkedin.com/in/novelo-luis/'> Luis Novelo </a>
+
+# <p style =" text-align: center">PART 3</p> 
+
+## Report <br>
+
+### I decided to use the Downtown Toronto Borough for this excercise due to its great economic impact and because it has most of the well know neighbourhoods including some of the "Top Ten Best Toronto Neighbourhoods To Live In 2019" according to TorontoRentals.com.
+
+### The clusters were defined by the most common venues: <br>
+   <li> Cluster 0: A lot of coffe shops and restaurants<br></li>
+   <li> Cluster 1: Public and recreational places like parks and playgrounds<br></li>
+   <li> Cluster 2: Self service stores, Grocery Stores and Café<br></li>
+    <li>Cluster 3: Airport services<br></li>
+    <li>Cluster 4: A lot of coffe shop and recreational places like parks and aquariums, <b>excelent for touristic purposes!</b> <br></li>
+
+This notebook was <b>Part 1,2 and 3</b> of the Final assignment from the week 3 of the Applied Data Science Capstone from IBM Professional Certificate made by <a href='https://www.linkedin.com/in/novelo-luis/'> Luis Novelo </a>
