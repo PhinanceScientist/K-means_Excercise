@@ -1,7 +1,8 @@
-<p align=center>
+<p align="center">
 <a href="https://github.com/PhinanceScientist"><img src = "https://i.ibb.co/NLfc0SV/Deveaner.png" width = 100> </a>
-<h1 align=center><font size = 5>Segmenting and Clustering Neighborhoods in Toronto</font></h1>
+<h1 align="center"><font size = 5>Segmenting and Clustering Neighborhoods in Toronto</font></h1>
 </p>
+
 ## Introduction
 
 For this project I will be testing some web scraping methods (Beautiful Soup) with python in order to obtain data from a public web page. After cleaning and exploring the data, the goal is to obtain some relevant information from the neighbourhoods from Toronto, Canada based on the information retrieved by the Foursquare API. k-means will be used to group the neighbourhoods and finally I will use the Folium library to visualize the results.
@@ -10,7 +11,7 @@ Please do notice that if you want to render this Jupyter notebook (show the foli
 
 This project it is divided in Parts, each one with its own conclussion adn references for further analysis.
 
-### <p style =" text-align: center">PART 1</p> 
+# <p style =" text-align: center">PART 1</p> 
 
 ### Scraping data from Wikipedia using BeautifulSoup
 
@@ -63,5 +64,6 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html 
    <li> Cluster 2: Self service stores, Grocery Stores and Café<br></li>
     <li>Cluster 3: Airport services<br></li>
     <li>Cluster 4: A lot of coffe shop and recreational places like parks and aquariums, <b>excelent for touristic purposes!</b> <br></li>
+***
 
-This notebook was <b>Part 1,2 and 3</b> of the Final assignment from the week 3 of the Applied Data Science Capstone from IBM Professional Certificate made by <a href='https://www.linkedin.com/in/novelo-luis/'> Luis Novelo </a>
+This notebook was <b>Part 1, 2 and 3</b> of the Final assignment from the week 3 of the Applied Data Science Capstone from IBM Professional Certificate made by <a href='https://www.linkedin.com/in/novelo-luis/'> Luis Novelo </a>
